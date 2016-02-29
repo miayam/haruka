@@ -8,6 +8,11 @@ module Orthodromic
     @coordinate[:longitude] = radian(coordinate[:longitude])
   end
 
+module_function
+  def radian(degree)
+    degree * (Math::PI / 180)
+  end
+
   def within_radius?(lat_radian, long_radian)
     distance(lat_radian, long_radian) <= @radius
   end
@@ -24,9 +29,5 @@ module Orthodromic
 
   def long_diff(long_radian)
     (@coordinate[:longitude] - long_radian).abs
-  end
-
-  def radian(degree)
-    degree * (Math::PI / 180)
   end
 end
