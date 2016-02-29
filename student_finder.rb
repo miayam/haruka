@@ -1,22 +1,33 @@
 require_relative 'json_reader'
-require_relative 'orthodromic'
 require 'ap'
 
 class StudentFinder
-  include Orthodromic # we want to know the distance on spherical surface
   attr_reader :invited_students
+  attr_accessor :radius, :coordinate
 
   def initialize(radius, coordinate)
+    @radius = radius
+    @coordinate = {}
+    @coordinate[:latitude] = coordinate[:latitude]
+    @coordinate[:longitude] = coordinate[:longitude]
     @invited_students = []
-    super
   end
 
   def find
     students = JsonReader.new.read_json("students.json")
     @invited_students = students.select do |location|
-      Orthodromic.radian(20)
+      lat_radian = radian(location[:latitude])
+      long_radian = radian(location[:longitude])
+      within_radius? lat_radian, long_radian
     end
+  end
 
-    ap @invited_students
+private
+  def radian(degree)
+    degree * (Math::PI / 180)
+  end
+
+  def within_radius? lat_radian, long_radian
+    distance(lat_radian, long_radian) <= @radius
   end
 end
