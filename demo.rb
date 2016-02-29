@@ -1,6 +1,10 @@
-require_relative "student_finder"
+require_relative 'student_finder'
 
-coordinate = {:latitude => 20, :longitude => 3}
+gandaria_city = { latitude: -6.243376, longitude: 106.784425 }
 radius = 14
-test = StudentFinder.new(radius, coordinate)
-ap test.find
+students = StudentFinder.new(radius, gandaria_city)
+invited_students = students.list
+
+invited_students.each do |student|
+  puts "#{student[:name]} - #{student[:id]}"
+end
