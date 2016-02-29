@@ -14,7 +14,7 @@ class StudentFinder
     @invited_students = []
   end
 
-  def list
+  def found
     students = JsonReader.new.read_json("students.json")
     @invited_students = students.select do |location|
       within_radius?(radian(location[:latitude]),
