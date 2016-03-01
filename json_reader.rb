@@ -9,6 +9,6 @@ class JsonReader
 
   def read_json(file)
     json_file = File.read(file)
-    @students = JSON.parse(json_file, symbolize_names: true) # the key must be :symbol not "string"
+    @students = JSON.parse(json_file, symbolize_names: true)
   end
 end

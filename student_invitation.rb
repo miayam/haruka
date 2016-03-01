@@ -1,16 +1,18 @@
 require_relative 'student_finder'
 
 class StudentInvitation
+  attr_reader :invited
+
   def initialize
-    @short_listed = []
+    @invited = []
   end
 
   def within(radius, coordinate)
-    @short_listed = StudentFinder.new(radius, coordinate).found
+    @invited = StudentFinder.new(radius, coordinate).found
   end
 
   def listing
-    @short_listed.each do |student|
+    @invited.each do |student|
       puts "#{student[:name]}  -->  #{student[:id]}"
     end
   end
