@@ -38,7 +38,7 @@ private
   def central_angle(lat_2, long_2)
     # https://en.wikipedia.org/wiki/Great-circle_distance
     # formula 1 doesn't work with small distance (14 km)
-    # honestly, I have no idea what's going on here :(
+    # honestly I had no idea what's going on here :(
 
     lat_1 = radian(@coordinate[:latitude])
     long_1 = radian(@coordinate[:longitude])

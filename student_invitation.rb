@@ -6,12 +6,12 @@ class StudentInvitation
   end
 
   def within(radius, coordinate)
-    @short_listed = StudentFinder.new(radius, coordinate)
+    @short_listed = StudentFinder.new(radius, coordinate).found
   end
 
-  def asc
+  def listing
     @short_listed.each do |student|
-      puts "#{student[:name]} #{student[:id]}"
+      puts "#{student[:name]}  -->  #{student[:id]}"
     end
   end
 end
