@@ -9,6 +9,9 @@ class StudentInvitation
 
   def within(radius, coordinate)
     @invited = StudentFinder.new(radius, coordinate).found
+    unless @invited
+      puts "Sorry, no one there"
+    end
   end
 
   def listing
