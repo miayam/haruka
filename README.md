@@ -1,6 +1,6 @@
 # Tinkering with Ruby
 
-I almost forget how I begin taking this less serious hobby (programming) to the next level. I was aspiring content writer who
+I almost forget how I began taking this less serious hobby (programming) to the next level. I was aspiring content writer who
 unintentionally applied for a free coding bootcamp (even got paid) run by KMK Online. I passed the test and got my first
 paid internship as a web developer. This is the test to get my first job as a web developer.
 
